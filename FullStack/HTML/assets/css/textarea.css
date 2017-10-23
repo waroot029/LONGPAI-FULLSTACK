@@ -1,0 +1,80 @@
+@import "compass/css3";
+
+@import url("https://fonts.googleapis.com/css?family=Lato");
+
+$background: #34495e;
+$base-color: #2c3e50;
+
+* {
+  margin: 0;
+  padding: 0;
+  @include box-sizing(border-box);
+}
+
+// The Mixin
+@mixin placeholder {
+    &:-ms-input-placeholder {
+        @content
+    }
+    &::-moz-placeholder {
+        @content
+    }
+    &::-webkit-input-placeholder {
+        @content
+    }
+}
+
+body {
+  padding: 20px;
+  text-align: left;
+  font-family: Lato;
+  color: #fff;
+  background: $background;
+}
+h1 {
+  font-weight: normal;
+  font-size: 40px;
+  font-weight: normal;
+  text-transform: uppercase;
+  float: left;
+  margin: 20px 0;
+  span {
+    font-size: 13px;
+    display: block;
+    padding-left: 4px;
+  }
+}
+
+// Placeholder Style
+@mixin placeholder-style {
+    color: lighten($base-color, 15%);
+}
+
+// Input Config
+input, textarea {
+    display: block;
+    clear: both;
+    width: 500px;
+    margin-bottom: 10px;
+    padding: 15px 10px;
+    font-size: 14px;
+    outline: none;
+    border: none;
+    background-color: $base-color;
+    color: lighten($base-color, 50%);
+    @include transition(all 0.2s ease-in);
+    @include placeholder {
+        @include placeholder-style;
+    }
+    &:hover {
+        background-color: darken($base-color, 5%);
+        color: lighten($base-color, 10%);
+    }
+    &:focus {
+        background-color: darken($base-color, 10%);
+        color: lighten($base-color, 20%);
+    }
+}
+textarea {
+    height: 150px;
+}

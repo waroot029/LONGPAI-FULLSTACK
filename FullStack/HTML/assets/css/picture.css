@@ -1,0 +1,53 @@
+@keyframes captionfade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+body {
+  color: #444;
+  font-family: Avenir, sans-serif;
+}
+div#o-gallery {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+div#o-gallery figure {
+  position: relative;
+  flex: 1;
+  max-width: 74% ;  /*ปรับขนาดภาพเวลาเม้าส์ไปโดน*/
+  transition: 1s;
+  margin: 0;
+}
+
+div#o-gallery img {
+  width: 50%;           /*ปรับขนาดภาพปกติ*/
+  max-height:  50%;
+  border: 0px solid;
+  object-fit: cover;
+  object-position: 0% 0%;
+  transition: 1s;
+  font-size: 0;
+  line-height: 0;
+}
+div#o-gallery figure:hover { flex: 2; }        /*คุมข้อความ ให้มันออกตรงไหน?*/
+div#o-gallery figcaption {
+  position: absolute;
+  top: 10%;
+  left: 105%;
+  opacity: 0;
+  width: 30%;
+}
+div#o-gallery figure:hover img {
+  width: 100%;
+  max-height: 700px;
+  object-fit: none;
+}
+div#o-gallery figure:hover figcaption {
+  animation: captionfade forwards 0.1s 0.1s;
+}
+div#o-gallery figure:nth-child(2) { text-align: center; }
+div#o-gallery figure:nth-child(2) figcaption { text-align: left; }
+div#o-gallery figure:last-child { text-align: left; }              /*เลือกให้ภาพอยู่ตรงไหน ซ้าย ขวา */
+div#o-gallery figure:last-child figcaption { right : -55%; }               /*ปรับให้ข้อความออกด้านขวา*/
